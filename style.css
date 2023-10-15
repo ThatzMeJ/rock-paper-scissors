@@ -66,20 +66,84 @@ header h1 {
   font-size: 4rem;
   color: #fac650;
   font-family: 'Press Start 2P', cursive;
+  text-align: center;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  height: 250px;
+  position: relative;
+}
 
+#score-board {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin-bottom: 20px;
+}
 
+h2 {
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player__choice {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+
+button {
+  background-color: #111720;
+  color: #fac650;
+  border-radius: 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.round {
+  font-size: 3rem;
+  position: absolute;
+  top: -29%;
+  right: 1;
+}
 @media (min-width: 300px) {
   header h1 {
     font-size: 1rem;
   }
+  header {
+    margin-bottom: 3em;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .round {
+    font-size: 1.5rem;
+    top: -1%;
+  }
 }
 
 @media (min-width: 530px) {
+  header {
+    margin-bottom: 3em;
+  }
   header h1 {
     font-size: 1.5rem;
   }
+
 }
 
 @media (min-width: 740px) {
@@ -98,4 +162,5 @@ header h1 {
   header h1 {
     font-size: 4rem;
   }
+
 }
