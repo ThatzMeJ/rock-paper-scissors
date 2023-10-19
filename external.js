@@ -4,6 +4,8 @@ let computerTotalPoints = 0;
 const playerSelection = document.querySelectorAll(".choice");
 const playerScore = document.querySelector('#player_score');
 const computerScore = document.querySelector('#computer_score');
+const scoreBoardContainer = document.querySelector('#score-board');
+const playerChoiceContainer = document.querySelector('.player__choice');
 
 playerScore.textContent = `${playerTotalPoints}`;
 computerScore.textContent = `${computerTotalPoints}`;
@@ -51,6 +53,37 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+const mainContainer = document.querySelector('main');
+const winnerPrompt = document.createElement("div");
+const playAgainBtn = document.createElement("button");
+playAgainBtn.textContent = 'Play Again';
+winnerPrompt.classList.add("winner");
+
+const elementsToRemove = [
+  scoreBoardContainer,
+  playerChoiceContainer,
+  round
+];
+
+const winnerElements = [
+  winnerPrompt,
+  playAgainBtn
+];
+
+function addElements(elements) {
+  elements.forEach(element => {
+    mainContainer.appendChild(element);
+  });
+}
+
+function removeElementAndChildren(parentElement) {
+  while (parentElement.firstChild) {
+    parentElement.removeChild(parentElement.firstChild);
+  }
+  parentElement.remove();
+}
+
+
 function winnerOfRound(result) {
   switch(result) {
     case "You win! Rock beats Scissors." :
@@ -64,9 +97,20 @@ function winnerOfRound(result) {
     case "You lose! Rock beats Scissors.":
       computerTotalPoints++;
       computerScore.textContent = `${computerTotalPoints}`;
+      break;
   }
 
-  if(playerTotalPoints || computerTotalPoints === 5) {
-
+  if(playerTotalPoints === 5) {
+    elementsToRemove.forEach(element => removeElementAndChildren(element));
+    winnerPrompt.textContent = 'Congrats you won the round!';
+    addElements(winnerElements);
+  } else if (computerTotalPoints === 5) {
+    elementsToRemove.forEach(element => removeElementAndChildren(element));
+    winnerPrompt.textContent = 'Nice try maybe next time!';
+    addElements(winnerElements);
   }
 }
+
+playAgainBtn.addEventListener('click', function() {
+  winnerElements.forEach(element => removeElementAndChildren(element));
+})

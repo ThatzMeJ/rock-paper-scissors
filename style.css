@@ -119,6 +119,19 @@ button:hover {
   top: -29%;
   right: 1;
 }
+
+.winner {
+  display: flex;
+  font-family: 'Press Start 2P', cursive;
+  color: #fac650;
+  font-size: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
 @media (min-width: 300px) {
   header h1 {
     font-size: 1rem;
