@@ -84,6 +84,8 @@ function removeElementAndChildren(parentElement) {
 }
 
 
+
+
 function winnerOfRound(result) {
   switch(result) {
     case "You win! Rock beats Scissors." :
@@ -112,5 +114,5 @@ function winnerOfRound(result) {
 }
 
 playAgainBtn.addEventListener('click', function() {
-  winnerElements.forEach(element => removeElementAndChildren(element));
+  location.reload();
 })
